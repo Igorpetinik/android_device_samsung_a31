@@ -5,7 +5,7 @@ Device Tree for Samsung Galaxy A31.
 
 The Galaxy A31 is a mid-range smartphone from Samsung.
 
-It was announced in April 2020.
+This phone was announced on March 24, 2020.
 
 ## Device specifications
 
