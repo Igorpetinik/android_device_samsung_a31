@@ -1,0 +1,18 @@
+vendor.tzdaemon                u:object_r:vendor_tzdaemon_prop:s0
+vendor.tzts_daemon             u:object_r:vendor_tztsdaemon_prop:s0
+vendor.secureos.               u:object_r:vendor_secureos_prop:s0
+
+ro.vendor.security.vaultkeeper.		u:object_r:vendor_sec_vaultkeeper_prop:s0
+vendor.security.vaultkeeper.        u:object_r:vendor_sec_vaultkeeper_prop:s0
+
+persist.sns.camera_light                     u:object_r:sns_camera_light_prop:s0
+persist.vendor.camera.privapp.list          u:object_r:vendor_sec_camera_prop:s0
+vendor.npu.usr_drv.log_mask          u:object_r:vendor_sec_camera_prop:s0
+
+vendor.bluetooth_nv_ver                     u:object_r:wifi_log_prop:s0
+vendor.bluetooth_fw_ver                     u:object_r:wifi_log_prop:s0
+vendor.wifi.dualconcurrent.interface                 u:object_r:wifi_log_prop:s0
+
+ro.vendor.multisim.                       u:object_r:vendor_radio_prop:s0
+ro.vendor.radio.default_network_by                       u:object_r:vendor_radio_prop:s0
+ro.vendor.radio.default_network                       u:object_r:vendor_radio_prop:s0

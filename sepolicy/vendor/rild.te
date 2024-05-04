@@ -1,0 +1,17 @@
+allow rild tun_device:chr_file rw_file_perms;
+allowxperm rild tun_device:chr_file ioctl { 0x54ca 0x54cb };
+allow rild cassd:dir search;
+allow rild cassd:file { getattr open read };
+allow rild mtk_hal_audio:dir search;
+allow rild vendor_data_file:dir { add_name open read remove_name write };
+allow rild mtk_hal_audio:file { getattr open read };
+allow rild vendor_data_file:file { create getattr ioctl lock open read unlink write };
+allow rild self:tun_socket create;
+allow rild self:unix_stream_socket connectto;
+allow rild drb_device:chr_file { read write open getattr ioctl };
+allow rild radio_device:chr_file { read write open ioctl };
+
+allow rild hal_telephony_hwservice:hwservice_manager { add find };
+
+get_prop(rild, vendor_radio_prop)
+get_prop(rild, csc_prop)

@@ -1,0 +1,15 @@
+# vendor_secril_config_svc service
+type vendor_secril_config_svc, domain;
+type vendor_secril_config_svc_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(vendor_secril_config_svc)
+
+allow vendor_secril_config_svc mnt_vendor_file:file create_file_perms;
+allow vendor_secril_config_svc mnt_vendor_file:dir create_dir_perms;
+allow vendor_secril_config_svc property_socket:sock_file { write };
+allow vendor_secril_config_svc init:unix_stream_socket connectto;
+allow vendor_secril_config_svc efs_file:dir { ioctl read getattr lock open watch watch_reads search };
+allow vendor_secril_config_svc efs_file:file { ioctl read getattr lock map open watch watch_reads };
+
+set_prop(vendor_secril_config_svc, vendor_radio_prop)
+get_prop(vendor_secril_config_svc, csc_prop)

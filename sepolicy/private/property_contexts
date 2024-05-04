@@ -1,0 +1,36 @@
+ro.vendor.qti.va_aosp.support       u:object_r:vendor_exported_system_prop:s0 exact bool
+
+ro.build.PDA                        u:object_r:exported_system_prop:s0
+
+ro.multisim.                     		u:object_r:radio_prop:s0
+persist.ril.                             u:object_r:radio_prop:s0
+
+mdc.                u:object_r:csc_prop:s0
+ro.csc.countryiso_code                   u:object_r:csc_prop:s0
+ro.csc.sales_code                        u:object_r:csc_prop:s0
+ro.csc.omcnw_code                        u:object_r:csc_prop:s0
+ro.csc.omcnw_code2                       u:object_r:csc_prop:s0
+ril.official_cscver                      u:object_r:csc_prop:s0
+persist.sys.omc_etcpath                  u:object_r:csc_prop:s0
+persist.sys.omc_support                  u:object_r:csc_prop:s0
+ro.simbased.changetype                   u:object_r:csc_prop:s0
+ro.csc.country_code                      u:object_r:csc_prop:s0
+
+ro.factory.factory_binary                       u:object_r:exported_system_prop:s0
+
+service.camera.client               u:object_r:exported_system_prop:s0
+cam.dipsavefile.enable						u:object_r:sec_camera_prop:s0
+sec.camera.portrait_mode                    u:object_r:sec_camera_portrait_prop:s0
+
+dev.sdhms.thermal.hv					u:object_r:exported_system_prop:s0
+
+ro.product_ship                          u:object_r:product_ship_prop:s0
+
+persist.sys.sec_feature                u:object_r:exported_system_prop:s0
+persist.sys.sec_feature2               u:object_r:exported_system_prop:s0
+persist.sys.sec_pcid                   u:object_r:exported_system_prop:s0
+persist.sys.sec_pcid2                  u:object_r:exported_system_prop:s0
+
+persist.cache_status_64         u:object_r:cache_status_prop:s0
+
+persist.debug_snap_gpu            u:object_r:vendor_debug_snap_prop:s0

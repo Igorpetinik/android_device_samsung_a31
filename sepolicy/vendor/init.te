@@ -1,0 +1,18 @@
+allow init wmtWifi_device:chr_file { open write };
+allow init cgroup:file getattr;
+allow init proc:file write;
+allow init sysfs_devices_block:file { open write };
+allow init vendor_file:file execute;
+allow init proc:filesystem associate;
+allow init lk_block_device:lnk_file relabelto;
+allow init self:netlink_generic_socket { bind create getattr read setopt write };
+allow init self:udp_socket ioctl;
+allow init self:unix_stream_socket connectto;
+allow init sysfs_ski_display_writable:file { open write };
+allow init nfc_device:chr_file ioctl;
+allowxperm init nfc_device:chr_file ioctl { 0x5302 0x5303 };
+
+get_prop(init, vts_status_prop)
+set_prop(init, apexd_prop)
+set_prop(init, radio_control_prop)
+set_prop(init, vendor_mtk_wifi_hotspot_prop)

@@ -1,0 +1,21 @@
+# macloader service
+type macloader, domain;
+type macloader_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(macloader)
+
+allow macloader self:capability net_admin;
+allow macloader wmtWifi_device:chr_file { open write };
+allow macloader mnt_vendor_file:dir create_dir_perms;
+allow macloader vendor_data_file:dir { add_name write };
+allow macloader mnt_vendor_file:file create_file_perms;
+allow macloader proc_net:file { getattr open read };
+allow macloader sysfs:file { open read write };
+allow macloader vendor_data_file:file { create open read setattr getattr write };
+allow macloader property_socket:sock_file { write };
+allow macloader self:udp_socket { create ioctl };
+allowxperm macloader self:udp_socket ioctl 0x8914;
+allow macloader init:unix_stream_socket connectto;
+
+set_prop(macloader, vendor_mtk_wifi_hotspot_prop)
+set_prop(macloader, wifi_log_prop)
