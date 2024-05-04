@@ -64,7 +64,7 @@ ro.crypto.metadata_init_delete_all_keys.enabled=false
 ro.crypto.volume.filenames_mode=aes-256-cts
 ro.vendor.mtk_config_max_dram_size=0x800000000
 ro.vendor.mtk_emmc_support=1
-ro.vendor.mtk_f2fs_enable=1
+ro.vendor.mtk_f2fs_enable=0
 ro.vendor.mtk_fd_support=1
 
 # Display
