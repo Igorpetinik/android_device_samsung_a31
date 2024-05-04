@@ -70,13 +70,6 @@ prebuilt_etc {
     vendor: true,
 }
 
-prebuilt_etc {
-    name: "ueventd.mt6768.rc",
-    filename: "ueventd.mt6768.rc",
-    src: "ueventd.mt6768.rc",
-    vendor: true,
-}
-
 // fstab
 prebuilt_etc {
     name: "fstab.ramplus",
