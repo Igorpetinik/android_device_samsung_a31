@@ -1,11 +1,11 @@
 Copyright (C) 2021 The LineageOS Project
 
-Device configuration for Xiaomi Mi 9T/Redmi K20
+Device configuration for Galaxy A31.
 =========================================
 
-The Xiaomi Mi 9T/Redmi K20 (codenamed _"davinci"_) is a mid-range smartphone from Xiaomi.
+The Galaxy A31 is a mid-range smartphone from Samsung.
 
-It was announced in June 2019.
+It was announced in March 2020.
 
 ## Device specifications
 
