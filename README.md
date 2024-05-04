@@ -23,4 +23,4 @@ Camera  | Main camera - 48+8+5+5 MP, Front camera - 28 MP
 
 ## Device picture
 
-![Xiaomi Mi 9T/Redmi K20](https://www.kcell.kz/shop/media/products/galaxy_a31_black.jpg) "Xiaomi Mi 9T/Redmi K20 in carbon black")
+![Xiaomi Mi 9T/Redmi K20]([https://www.kcell.kz/shop/media/products/galaxy_a31_black.jpg]) "Xiaomi Mi 9T/Redmi K20 in carbon black")
