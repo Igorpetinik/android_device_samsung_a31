@@ -6,17 +6,6 @@
 
 // Init scripts
 // Init configuration files
-prebuilt_etc {
-    name: "fstab.enableswap",
-    src: "etc/fstab.enableswap",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "fstab.mt6768",
-    src: "etc/fstab.mt6768",
-    vendor: true,
-}
 
 prebuilt_etc {
     name: "init.ago.rc",
@@ -81,9 +70,31 @@ prebuilt_etc {
     vendor: true,
 }
 
+prebuilt_etc {
+    name: "ueventd.mt6768.rc",
+    filename: "ueventd.mt6768.rc",
+    src: "ueventd.mt6768.rc",
+    vendor: true,
+}
+
 // fstab
 prebuilt_etc {
     name: "fstab.ramplus",
+    filename: "fstab.ramplus",
     src: "etc/fstab.ramplus",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "fstab.enableswap",
+    filename: "fstab.enableswap",
+    src: "etc/fstab.enableswap",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "fstab.mt6768",
+    filename: "fstab.mt6768",
+    src: "etc/fstab.mt6768",
     vendor: true,
 }
