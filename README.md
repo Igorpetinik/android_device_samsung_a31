@@ -20,7 +20,3 @@ Storage | 64/128 GB (eMMC 5.1)
 Battery | Non-removable Li-Po 5000 mAh
 Display | 1080 x 2400 pixels, 6.4 inches (~411 ppi pixel density), Super AMOLED
 Camera  | Main camera - 48+8+5+5 MP, Front camera - 28 MP
-
-## Device picture
-
-![Xiaomi Mi 9T/Redmi K20]([https://www.kcell.kz/shop/media/products/galaxy_a31_black.jpg]) "Xiaomi Mi 9T/Redmi K20 in carbon black")
