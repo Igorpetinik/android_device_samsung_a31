@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<MediaCodecs>
+    <Decoders>
+        <MediaCodec name="c2.sec.ape.decoder" type="audio/x-ape" rank="1">
+            <Limit name="channel-count" max="2" />
+            <Limit name="sample-rate" ranges="1-192000" />
+            <Limit name="bitrate" range="8000-960000" />
+        </MediaCodec>
+    </Decoders>
+</MediaCodecs>

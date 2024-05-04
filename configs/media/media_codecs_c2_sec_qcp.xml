@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<MediaCodecs>
+    <Decoders>
+        <MediaCodec name="c2.sec.qcelp.decoder" type="audio/qcelp" rank="1">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="8000" />
+            <Limit name="bitrate" range="8000-16000" />
+        </MediaCodec>
+        <MediaCodec name="c2.sec.evrc.decoder" type="audio/evrc" rank="1">
+            <Limit name="channel-count" max="2" />
+            <Limit name="sample-rate" ranges="8000-16000" />
+            <Limit name="bitrate" range="8000-16000" />
+        </MediaCodec>
+    </Decoders>
+    <Encoders>
+        <MediaCodec name="c2.sec.qcelp.encoder" type="audio/qcelp" rank="1">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="8000" />
+            <Limit name="bitrate" range="8000-16000" />
+        </MediaCodec>
+        <MediaCodec name="c2.sec.evrc.encoder" type="audio/evrc" rank="1">
+            <Limit name="channel-count" max="2" />
+            <Limit name="sample-rate" ranges="8000-16000" />
+            <Limit name="bitrate" range="8000-16000" />
+        </MediaCodec>
+    </Encoders>
+</MediaCodecs>
