@@ -1,6 +1,6 @@
 Copyright (C) 2024 The LineageOS Project
 
-Device configuration for Galaxy A31.
+Device Tree for Samsung Galaxy A31.
 =========================================
 
 The Galaxy A31 is a mid-range smartphone from Samsung.
