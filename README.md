@@ -1,5 +1,4 @@
 Copyright (C) 2024 The LineageOS Project
-Copyright (C) 2024 The LineageOS Project
 
 Device Tree for Samsung Galaxy A31.
 =========================================
