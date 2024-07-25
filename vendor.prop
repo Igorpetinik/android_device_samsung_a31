@@ -109,6 +109,9 @@ ro.hardware.keystore_desede=true
 ro.hardware.kmsetkey=trustonic
 ro.mtk_key_manager_support=1
 
+# Gatekeeper
+ro.hardware.gatekeeper=trustonic
+
 # LMK
 ro.lmk.downgrade_pressure=60
 ro.lmk.kill_timeout_ms=100

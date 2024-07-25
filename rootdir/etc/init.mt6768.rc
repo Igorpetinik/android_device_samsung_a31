@@ -21,8 +21,6 @@ on early-init
 
 on init
     write /proc/bootprof "INIT:init"
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
 
     # Param
     symlink /dev/block/by-name/param /dev/block/param
@@ -151,12 +149,6 @@ on post-fs
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "3 100"
     write /proc/perfmgr/boost_ctrl/eas_ctrl/sched_stune_task_thresh 0
 
-    # Remount data in RW
-    mount -o remount,rw /data
-
-    # Remount storage in RW
-    mount -o remount,rw /storage
-
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
 
@@ -188,8 +180,6 @@ on post-fs
     chmod 0770 /mnt/vendor/protect_s
 
     # Support A/B feature for EMMC and UFS boot region
-    symlink /dev/block/sda /dev/block/mmcblk0boot0
-    symlink /dev/block/sdb /dev/block/mmcblk0boot1
     symlink /dev/block/mmcblk0boot0 /dev/block/platform/bootdevice/by-name/preloader_a
     symlink /dev/block/mmcblk0boot1 /dev/block/platform/bootdevice/by-name/preloader_b
 
@@ -1272,6 +1262,10 @@ on boot
     chown system system /sys/class/leds/green/trigger
     chown system system /sys/class/leds/blue/trigger
 
+    # Fix "Read-Only File System" for Storage
+    chown system system /storage
+    chmod 0777 /storage
+
     # Permission for hibernation
     chown radio system /sys/power/tuxonice
     chown radio system /sys/power/tuxonice/do_hibernate
@@ -1574,6 +1568,12 @@ on property:vendor.mtk.md1.status=reset
 # FPSGO FBT Game
 on boot
     insmod /vendor/lib/modules/fpsgo.ko
+    # Fix prism and optics
+    mkdir /prism
+    mkdir /optics
+    # Fix hwrng
+    chown root system /dev/hw_random
+    chmod 0777 /dev/hw_random
 
 # VSIM service (vendor OSI)
 service osi /system/bin/osi
@@ -1598,13 +1598,35 @@ service pageboostd /system/bin/pageboostd
     socket pageboostd seqpacket 0660 system system
     disabled
 
+# Fix keydata and keyrefuge
+on boot
+    mkdir /keydata
+    chown system root /keydata
+    chmod 0777 /keydata
+    mkdir /keyrefuge
+    chown system root /keyrefuge
+    chmod 0777 /keyrefuge
+
+# Fix /sys
+on init
+    chown system root /sys/kernel/tracing/synthetic_events
+    chmod 0777 /sys/kernel/tracing/synthetic_events
+
+# Fix /dev
+on init
+    chown system root /dev/sys/fs/by-name/userdata/seq_file_ra_mul
+    chmod 0777 /dev/sys/fs/by-name/userdata/seq_file_ra_mul
+    chown system root /dev/cpuctl/nnapi-hal/cpu.uclamp.min
+    chmod 0777 /dev/cpuctl/nnapi-hal/cpu.uclamp.min
+    chown system root /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
+    chmod 0777 /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
+
 # Logcat
 on post-fs
-    rm /cache/debuglogs/dmesg.txt
-    rm /cache/debuglogs/logcat.txt
+    rm /cache/logcat.system_lineage.txt
     start logcat_cache
 
-service logcat_cache /system/bin/logcat -b all -f /cache/logcat.txt -v threadtime
+service logcat_cache /system/bin/logcat -b all -f /cache/logcat.system_lineage.txt -v threadtime
     class main
     user root
     group system

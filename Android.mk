@@ -19,10 +19,12 @@ $(VENDOR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) echo "Making vendor symlinks"
 	@mkdir -p $(TARGET_OUT_VENDOR)/lib/hw
 	@mkdir -p $(TARGET_OUT_VENDOR)/lib64/hw
-	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.default.so
-	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.default.so
 	@ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT_VENDOR)/lib/hw/vulkan.$(TARGET_BOARD_PLATFORM).so
 	@ln -sf /vendor/lib64/egl/libGLES_mali.so $(TARGET_OUT_VENDOR)/lib64/hw/vulkan.$(TARGET_BOARD_PLATFORM).so
+	@ln -sf /vendor/lib/hw/libMcGatekeeper.so $(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.trustonic.so
+	@ln -sf /vendor/lib64/hw/libMcGatekeeper.so $(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.trustonic.so
+	@ln -sf /vendor/lib/hw/kmsetkey.trustonic.so $(TARGET_OUT_VENDOR)/lib/hw/kmsetkey.default.so
+	@ln -sf /vendor/lib64/hw/kmsetkey.trustonic.so $(TARGET_OUT_VENDOR)/lib64/hw/kmsetkey.default.so
 	@ln -sf /vendor/lib/mt6768/libdpframework.so $(TARGET_OUT_VENDOR)/lib/libdpframework.so
 	@ln -sf /vendor/lib64/mt6768/libdpframework.so $(TARGET_OUT_VENDOR)/lib64/libdpframework.so
 	@ln -sf /vendor/lib/mt6768/libmtk_drvb.so $(TARGET_OUT_VENDOR)/lib/libmtk_drvb.so

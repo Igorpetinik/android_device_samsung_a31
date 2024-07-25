@@ -3,9 +3,9 @@
 on early-init
     # softdog
     chown root system /dev/watchdog
-    chmod 0660 /dev/watchdog    
+    chmod 0777 /dev/watchdog    
     symlink /dev/watchdog /dev/softdog
-    write /dev/softdog 1 
+    write /dev/watchdog 1 
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw

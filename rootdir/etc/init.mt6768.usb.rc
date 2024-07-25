@@ -12,8 +12,8 @@ on post-fs
     write /config/usb_gadget/g1/os_desc/use 1
     mkdir /config/usb_gadget/g1/strings/0x409 0770
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
-    write /config/usb_gadget/g1/strings/0x409/manufacturer "SAMSUNG"
-    write /config/usb_gadget/g1/strings/0x409/product "SAMSUNG_Android"
+    write /config/usb_gadget/g1/strings/0x409/manufacturer "Samsung"
+    write /config/usb_gadget/g1/strings/0x409/product "Samsung Galaxy A31"
     mkdir /config/usb_gadget/g1/functions/accessory.gs2
     mkdir /config/usb_gadget/g1/functions/audio_source.gs3
     mkdir /config/usb_gadget/g1/functions/ffs.adb
@@ -82,8 +82,8 @@ on charger
     write /config/usb_gadget/g1/os_desc/use 1
     mkdir /config/usb_gadget/g1/strings/0x409 0770
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
-    write /config/usb_gadget/g1/strings/0x409/manufacturer "SAMSUNG"
-    write /config/usb_gadget/g1/strings/0x409/product "SAMSUNG_Android"
+    write /config/usb_gadget/g1/strings/0x409/manufacturer "Samsung"
+    write /config/usb_gadget/g1/strings/0x409/product "Samsung Galaxy A31"
     mkdir /config/usb_gadget/g1/configs/b.1 0770 shell shell
     mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
     write /config/usb_gadget/g1/configs/b.1/MaxPower 500

@@ -1,7 +1,4 @@
-import /vendor/etc/ueventd.rc
-import /odm/etc/ueventd.rc
-
-firmware_directories /etc/firmware/ /odm/firmware/ /vendor/firmware/ /firmware/image/
+firmware_directories /vendor/firmware/
 uevent_socket_rcvbuf_size 16M
 
 subsystem graphics

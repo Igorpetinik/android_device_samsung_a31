@@ -1,2 +1,2 @@
-on boot
+on early-init
     stop console

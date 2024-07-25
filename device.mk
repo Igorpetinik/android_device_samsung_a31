@@ -11,9 +11,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0.vendor \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio@2.0-util.vendor \
+    android.hardware.audio@4.0.vendor \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@5.0.vendor \
+    android.hardware.audio@5.0-impl \
     android.hardware.audio@6.0.vendor \
+    android.hardware.audio@6.0-impl \
     android.hardware.audio@7.0.vendor \
+    android.hardware.audio@7.0-impl \
+    android.hardware.audio@7.1.vendor \
+    android.hardware.audio@7.1-impl \
     android.hardware.audio@7.0-util.vendor \
     android.hardware.audio.common@2.0-util.vendor \
     android.hardware.audio.common@5.0.vendor \
@@ -55,8 +64,14 @@ PRODUCT_PACKAGES += \
     libstagefright_foundation
 
 PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.0-impl:32 \
-    android.hardware.soundtrigger@2.3.vendor:32
+    android.hardware.soundtrigger@2.0-impl \
+    android.hardware.soundtrigger@2.0.vendor \
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.soundtrigger@2.1.vendor \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.soundtrigger@2.2.vendor \
+    android.hardware.soundtrigger@2.3-impl \
+    android.hardware.soundtrigger@2.3.vendor
 
 PRODUCT_PACKAGES += \
     MtkInCallService
@@ -86,12 +101,26 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0.vendor \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth.audio@2.1.vendor \
+    android.hardware.bluetooth.a2dp@1.0.vendor \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth@1.1.vendor
 
 # Camera
 PRODUCT_PACKAGES += \
     libdng_sdk.vendor
+
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4.vendor \
+    android.hardware.camera.provider@2.5.vendor \
+    android.hardware.camera.provider@2.6.vendor \
+    android.hardware.camera.device@3.2.vendor \
+    android.hardware.camera.device@3.3.vendor \
+    android.hardware.camera.device@3.4.vendor \
+    android.hardware.camera.device@3.4.vendor \
+    android.hardware.camera.device@3.5.vendor \
+    android.hardware.camera.device@3.6.vendor \
+    android.hardware.camera.common@1.0.vendor
 
 # CAS
 PRODUCT_PACKAGES += \
@@ -151,14 +180,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
-# Gatekeeper
+# GateKeeper
 PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
+    android.hardware.gatekeeper@1.0.vendor
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.keymaster@4.0-service \
+    android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@3.0.vendor
+
+PRODUCT_PACKAGES += \
+    libkeymaster4.vendor \
+    libkeymaster4support.vendor \
+    libkeymaster4_1support.vendor \
+    libpuresoftkeymasterdevice.vendor \
+    libsoft_attestation_cert.vendor
 
 # GNSS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0.vendor \
+    android.hardware.gnss@1.0-impl   \
     android.hardware.gnss@1.1.vendor \
     android.hardware.gnss@2.0.vendor \
     android.hardware.gnss@2.1.vendor \
@@ -168,6 +213,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
+    android.hardware.health@2.1 \
+    android.hardware.health@2.1.vendor \
     android.hardware.health-service.a31 \
     android.hardware.health-service.a31-recovery
 
@@ -189,21 +236,26 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0-service \
-    android.hardware.keymaster@4.0.vendor
-
-PRODUCT_PACKAGES += \
-    libkeymaster4.vendor \
-    libkeymaster4support.vendor \
-    libkeymaster4_1support.vendor \
-    libpuresoftkeymasterdevice.vendor \
-    libsoft_attestation_cert.vendor
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/kernel-modules/bt_drv_connac1x.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/bt_drv_connac1x.ko \
+    $(LOCAL_PATH)/kernel-modules/connfem.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/connfem.ko \
+    $(LOCAL_PATH)/kernel-modules/fmradio_drv_mt6631.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fmradio_drv_mt6631.ko \
+    $(LOCAL_PATH)/kernel-modules/fpsgo.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fpsgo.ko \
+    $(LOCAL_PATH)/kernel-modules/gps_drv.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/gps_drv.ko \
+    $(LOCAL_PATH)/kernel-modules/met.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/met.ko \
+    $(LOCAL_PATH)/kernel-modules/udc_lib.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/udc_lib.ko \
+    $(LOCAL_PATH)/kernel-modules/wlan_drv_gen4m.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wlan_drv_gen4m.ko \
+    $(LOCAL_PATH)/kernel-modules/wmt_chrdev_wifi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wmt_chrdev_wifi.ko \
+    $(LOCAL_PATH)/kernel-modules/wmt_drv.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wmt_drv.ko \
+    $(LOCAL_PATH)/kernel-modules/modules.alias:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.alias \
+    $(LOCAL_PATH)/kernel-modules/modules.dep:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.dep \
+    $(LOCAL_PATH)/kernel-modules/modules.load:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.load \
+    $(LOCAL_PATH)/kernel-modules/modules.softdep:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.softdep
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0.vendor:64
+    android.hardware.light@2.0.vendor
 
 # Media
 PRODUCT_PACKAGES += \
@@ -242,7 +294,6 @@ PRODUCT_COPY_FILES += \
 # Ndk
 PRODUCT_PACKAGES += \
     android.hardware.common-V2-ndk_platform.vendor \
-    android.hardware.keymaster-V3-ndk_platform.vendor \
     android.hardware.light-V1-ndk_platform.vendor \
     android.hardware.power-V2-ndk_platform.vendor \
     android.hardware.vibrator-V2-ndk_platform.vendor
@@ -360,6 +411,7 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
 PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0.vendor \
     android.hardware.power@1.0.vendor \
     android.hardware.power@1.1.vendor \
     android.hardware.power@1.2.vendor \
@@ -409,10 +461,10 @@ PRODUCT_PACKAGES += \
     init.recovery.mt6768.rc \
     init.recovery.samsung.rc \
     init.target.rc \
-    ueventd.mtk.rc
+    ueventd.mtk.rc \
+    ueventd.mt6768.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768 \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768 \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.mt6768
 
@@ -430,6 +482,9 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    device/mediatek/sepolicy_vndr \
+    hardware/samsung/interfaces \
+    hardware/mediatek/interfaces \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
@@ -449,15 +504,26 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.2.vendor \
     android.hardware.usb@1.3.vendor
 
+# USB Gadget
+PRODUCT_PACKAGES += \
+    android.hardware.usb.gadget@1.0.vendor \
+    android.hardware.usb.gadget@1.1.vendor \
+    android.hardware.usb.gadget@1.1-service
+
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v29.so \
-    prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v29.so \
-    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so \
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v29.so \
+    prebuilts/vndk/v30/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so \
     prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so \
-    prebuilts/vndk/v30/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v31.so \
+    prebuilts/vndk/v31/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v31.so \
     prebuilts/vndk/v31/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v31.so \
-    prebuilts/vndk/v32/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v32.so \
-    prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so 
+    prebuilts/vndk/v31/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v32.so \
+    prebuilts/vndk/v31/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so
+
+# Atrace
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0.vendor \
+    android.hardware.atrace@1.0-service
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
