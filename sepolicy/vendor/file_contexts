@@ -10,6 +10,21 @@
 # drb
 /dev/drb						u:object_r:drb_device:s0
 
+# keydata
+/keydata(/.*)?    u:object_r:system_file:s0
+
+# keyrefuge
+/keyrefuge(/.*)?    u:object_r:system_file:s0
+
+# prism
+/prism(/.*)?    u:object_r:system_file:s0
+
+# optics
+/optics(/.*)?    u:object_r:system_file:s0
+
+# acct
+/acct(/.*)?    u:object_r:system_file:s0
+
 # dumpstate
 /(vendor|system/vendor)/bin/hw/android\.hardware\.dumpstate@1\.1-service-lazy      u:object_r:hal_dumpstate_default_exec:s0
 
