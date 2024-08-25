@@ -21,6 +21,8 @@ on early-init
 
 on init
     write /proc/bootprof "INIT:init"
+    # Support legacy SD card paths
+    symlink /sdcard /mnt/sdcard
 
     # Param
     symlink /dev/block/by-name/param /dev/block/param
@@ -1262,10 +1264,6 @@ on boot
     chown system system /sys/class/leds/green/trigger
     chown system system /sys/class/leds/blue/trigger
 
-    # Fix "Read-Only File System" for Storage
-    chown system system /storage
-    chmod 0777 /storage
-
     # Permission for hibernation
     chown radio system /sys/power/tuxonice
     chown radio system /sys/power/tuxonice/do_hibernate
@@ -1568,12 +1566,6 @@ on property:vendor.mtk.md1.status=reset
 # FPSGO FBT Game
 on boot
     insmod /vendor/lib/modules/fpsgo.ko
-    # Fix prism and optics
-    mkdir /prism
-    mkdir /optics
-    # Fix hwrng
-    chown root system /dev/hw_random
-    chmod 0777 /dev/hw_random
 
 # VSIM service (vendor OSI)
 service osi /system/bin/osi
@@ -1598,31 +1590,35 @@ service pageboostd /system/bin/pageboostd
     socket pageboostd seqpacket 0660 system system
     disabled
 
-# Fix keydata and keyrefuge
-on boot
-    mkdir /keydata
-    chown system root /keydata
-    chmod 0777 /keydata
-    mkdir /keyrefuge
-    chown system root /keyrefuge
-    chmod 0777 /keyrefuge
-
 # Fix /sys
 on init
-    chown system root /sys/kernel/tracing/synthetic_events
+    chown root system /sys/kernel/tracing/synthetic_events
     chmod 0777 /sys/kernel/tracing/synthetic_events
-
-# Fix /dev
-on init
-    chown system root /dev/sys/fs/by-name/userdata/seq_file_ra_mul
+    chown root system /dev/sys/fs/by-name/userdata/seq_file_ra_mul
     chmod 0777 /dev/sys/fs/by-name/userdata/seq_file_ra_mul
-    chown system root /dev/cpuctl/nnapi-hal/cpu.uclamp.min
+
+# Fix dev cpuctl
+on init
+    chown root system /dev/cpuctl/nnapi-hal/cpu.uclamp.min
     chmod 0777 /dev/cpuctl/nnapi-hal/cpu.uclamp.min
-    chown system root /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
+    chown root system /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
     chmod 0777 /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
 
+# Fix dev blkio
+on init
+    chown root system /dev/blkio/blkio.weight
+    chmod 0777 /dev/blkio/blkio.weight
+    chown root system /dev/blkio/background/blkio.weight
+    chmod 0777 /dev/blkio/background/blkio.weight
+    chown root system /dev/blkio/background/blkio.bfq.weight
+    chmod 0777 /dev/blkio/background/blkio.bfq.weight
+    chown root system /dev/blkio/blkio.group_idle
+    chmod 0777 /dev/blkio/blkio.group_idle
+    chown root system /dev/blkio/background/blkio.group_idle
+    chmod 0777 /dev/blkio/background/blkio.group_idle
+
 # Logcat
-on post-fs
+on init
     rm /cache/logcat.system_lineage.txt
     start logcat_cache
 
