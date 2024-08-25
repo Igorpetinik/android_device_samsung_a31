@@ -2,14 +2,14 @@
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
-        <fqname>@7.1::IDevicesFactory/default</fqname>
         <fqname>@7.0::IDevicesFactory/default</fqname>
+        <fqname>@7.1::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
-        <fqname>@7.1::IEffectsFactory/default</fqname>
         <fqname>@7.0::IEffectsFactory/default</fqname>
+        <fqname>@7.1::IEffectsFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
@@ -19,24 +19,11 @@
     <hal format="hidl">
         <name>android.hardware.bluetooth.audio</name>
         <transport>hwbinder</transport>
-        <fqname>@2.2::IBluetoothAudioProvidersFactory/default</fqname>
         <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.mediatek.hardware.camera.isphal</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IISPModule/internal/0</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.camera.provider</name>
-        <transport>hwbinder</transport>
-        <fqname>@4.0::ISehCameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
-        <fqname>@2.4::ICameraProvider/legacy/0</fqname>
-        <fqname>@2.5::ICameraProvider/legacy/0</fqname>
         <fqname>@2.6::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
@@ -51,28 +38,9 @@
         <fqname>@1.1::IDumpstateDevice/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.trustonic.tee</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ITee/default</fqname>
-        <fqname>@1.1::ITee/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.trustonic.tee.tui</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ITui/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IGatekeeper/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.soundtrigger</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.0::ISoundTriggerHw/default</fqname>
-        <fqname>@2.1::ISoundTriggerHw/default</fqname>
-        <fqname>@2.2::ISoundTriggerHw/default</fqname>
-        <fqname>@2.3::ISoundTriggerHw/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gnss</name>
@@ -107,11 +75,30 @@
    <hal format="hidl" override="true">
         <name>android.hardware.media.c2</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IComponentStore/default</fqname>
-        <fqname>@1.0::IComponentStore/default0</fqname>
         <fqname>@1.2::IComponentStore/default</fqname>
         <fqname>@1.2::IComponentStore/default0</fqname>
    </hal>
+    <hal format="hidl">
+        <name>vendor.trustonic.tee</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::ITee/default</fqname>
+        <fqname>@1.0::ITee/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.trustonic.tee.tui</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ITui/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.power.stats</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IPowerStats/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.memtrack</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMemtrack/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
@@ -237,16 +224,6 @@
         <name>vendor.mediatek.hardware.mms</name>
         <transport>hwbinder</transport>
         <fqname>@1.6::IMms/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.power.stats</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IPowerStats/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.memtrack</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IMemtrack/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.mtkpower</name>
