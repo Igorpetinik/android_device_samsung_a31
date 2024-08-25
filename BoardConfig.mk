@@ -42,6 +42,9 @@ TARGET_SCREEN_DENSITY := 420
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_samsung_a31
 TARGET_RECOVERY_DEVICE_MODULES := libinit_samsung_a31
 
+# Camera
+TARGET_PROVIDES_CAMERA_HAL := true
+
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
@@ -64,7 +67,7 @@ TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := r383902
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 
-BOARD_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Kernel
+BOARD_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 BOARD_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/kernel-modules/*.ko)
 
@@ -103,11 +106,14 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_USES_METADATA_PARTITION := true
-BOARD_ROOT_EXTRA_FOLDERS += metadata
+BOARD_ROOT_EXTRA_FOLDERS += metadata efs prism optics keyrefuge keydata cache acct
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6768
 BOARD_HAS_MTK_HARDWARE := true
+
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop

@@ -21,9 +21,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio@7.0.vendor \
     android.hardware.audio@7.0-impl \
+    android.hardware.audio@7.0-util.vendor \
     android.hardware.audio@7.1.vendor \
     android.hardware.audio@7.1-impl \
-    android.hardware.audio@7.0-util.vendor \
     android.hardware.audio.common@2.0-util.vendor \
     android.hardware.audio.common@5.0.vendor \
     android.hardware.audio.common@6.0.vendor \
@@ -171,6 +171,13 @@ PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0.vendor:64 \
     android.hardware.dumpstate@1.1.vendor:64
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.keymaster@4.0-service \
+    android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@3.0.vendor
+
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
@@ -179,19 +186,6 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
-
-# GateKeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0.vendor
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.vendor \
-    android.hardware.keymaster@4.0-service \
-    android.hardware.keymaster@4.0.vendor \
-    android.hardware.keymaster@3.0.vendor
 
 PRODUCT_PACKAGES += \
     libkeymaster4.vendor \
@@ -253,9 +247,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernel-modules/modules.load:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.load \
     $(LOCAL_PATH)/kernel-modules/modules.softdep:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.softdep
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service \
+
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0.vendor
+    android.hardware.light@2.0.vendor \
+    android.hardware.light-service.mt6768
 
 # Media
 PRODUCT_PACKAGES += \
@@ -290,6 +291,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/seccomp_policy/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
     $(LOCAL_PATH)/configs/seccomp_policy/samsung.software.media.c2-base-policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/samsung.software.media.c2-base-policy \
     $(LOCAL_PATH)/configs/seccomp_policy/samsung.software.media.c2-ext-policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/samsung.software.media.c2-ext-policy
+
+# Power Stats
+PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0.vendor
 
 # Ndk
 PRODUCT_PACKAGES += \
@@ -458,15 +463,14 @@ PRODUCT_PACKAGES += \
     init.mt6768.rc \
     init.mt6768.usb.rc \
     init.project.rc \
-    init.recovery.mt6768.rc \
-    init.recovery.samsung.rc \
     init.target.rc \
     ueventd.mtk.rc \
     ueventd.mt6768.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768 \
-    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.mt6768
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.samsung.rc:$(TARGET_COPY_OUT_RECOVERY)/init.recovery.samsung.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6768.rc:$(TARGET_COPY_OUT_RECOVERY)/init.recovery.mt6768.rc
 
 # Sensors
 PRODUCT_PACKAGES += \
